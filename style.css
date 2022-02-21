@@ -11,10 +11,10 @@ body {min-height:200vh;
 }
 
 .nav-content{
-  justify-content: right !important;
+  /* justify-content: right !important; */
   float: right !important;
   text-align: right !important;
-  background-position: 0% !important;
+  /* background-position: 100% !important; */
 
 }
 
@@ -543,7 +543,7 @@ End of dynamic text
   font-size: 1.2rem;
   border-radius: 50%;
   line-height: 1.6;
-  margin: 0 15px 0 0;
+  margin: 0 15px 10px 0;
   box-shadow: 0 0 0 3px #0078ff;
   transition: all 500ms ease;
 }
@@ -713,6 +713,9 @@ End of dynamic text
     margin-bottom: 3rem;
   }
 }
+.m-card-blog{
+  padding-bottom: 18px;
+}
 .card-blog .card-body {
   position: relative;
 }
@@ -774,7 +777,7 @@ End of dynamic text
   }
 }
 
-.php-email-form .error-message {
+.js-email-form .error-message {
   display: none;
   color: #fff;
   background: #ed3c0d;
@@ -782,7 +785,7 @@ End of dynamic text
   padding: 15px;
   font-weight: 600;
 }
-.php-email-form .sent-message {
+.js-email-form .sent-message {
   display: none;
   color: #fff;
   background: #18d26e;
@@ -790,13 +793,13 @@ End of dynamic text
   padding: 15px;
   font-weight: 600;
 }
-.php-email-form .loading {
+.js-email-form .loading {
   display: none;
   background: #fff;
   text-align: center;
   padding: 15px;
 }
-.php-email-form .loading:before {
+.js-email-form .loading:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -808,29 +811,29 @@ End of dynamic text
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite;
 }
-.php-email-form input, .php-email-form textarea {
+.js-email-form input, .js-email-form textarea {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
 }
-.php-email-form input:focus, .php-email-form textarea:focus {
+.js-email-form input:focus, .js-email-form textarea:focus {
   border-color: #0078ff;
 }
-.php-email-form input {
+.js-email-form input {
   padding: 10px 15px;
 }
-.php-email-form textarea {
+.js-email-form textarea {
   padding: 12px 15px;
   margin-bottom: 0;
 }
-.php-email-form button[type=submit] {
+.js-email-form button[type=submit] {
   background: #0078ff;
   border: 0;
   padding: 10px 24px;
   color: #fff;
   transition: 0.4s;
 }
-.php-email-form button[type=submit]:hover {
+.js-email-form button[type=submit]:hover {
   background: #3393ff;
 }
 
@@ -958,6 +961,32 @@ footer .credits a {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/*------/ Owl Carousel /------*/
+.owl-theme .owl-dots {
+  text-align: center;
+  margin-top: 18px;
+}
+.owl-theme .owl-dots .owl-dot {
+  display: inline-block;
+}
+.owl-theme .owl-dots .owl-dot span {
+  width: 18px;
+  height: 7px;
+  margin: 5px 5px;
+  background: #cde1f8;
+  border: 0px solid #cde1f8;
+  display: block;
+  transition: all 0.6s ease-in-out;
+  cursor: pointer;
+}
+.owl-theme .owl-dots .owl-dot:hover span {
+  background-color: #cde1f8;
+}
+.owl-theme .owl-dots .owl-dot.active span {
+  background-color: #1B1B1B;
+  width: 25px;
 }
 /*--------------------------------------------------------------
 # Navigation Menu

@@ -18,7 +18,11 @@
         <!-- Font awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        
+        <!--  -->
+        <link href="swiper/swiper-bundle.min.css" rel="stylesheet">
+        <link href="glightbox/css/glightbox.min.css" rel="stylesheet">
+        
 
     </head>
 
@@ -32,7 +36,7 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <!-- Nav content -->
-              <div class="collapse navbar-collapse" id="navbarSupportedContent nav-content">
+              <div class="collapse navbar-collapse nav-content" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto me-2 mb-lg-0 nav-content">
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -49,7 +53,7 @@
                   <li class="nav-item">
                     <a class="nav-link" href="#blog">Blogs</a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item nav-content">
                     <a class="nav-link" href="#contact">Contact</a>
                   </li>
                 </ul>
@@ -166,7 +170,7 @@
       </section>
       <!-- End of about -->
 
-        <!-- ======= Services Section ======= -->
+      <!-- ======= Services Section ======= -->
       <section id="services" class="services-mf pt-5 route">
         <div class="container">
           <div class="row">
@@ -290,7 +294,7 @@
                   </span>
                 </div>
                 <div class="counter-num">
-                  <p data-purecounter-start="0" data-purecounter-end="450" data-purecounter-duration="1" class="counter purecounter"></p>
+                  <p data-purecounter-start="0" data-purecounter-end="45" data-purecounter-duration="1" class="counter purecounter"></p>
                   <span class="counter-text">WORKS COMPLETED</span>
                 </div>
               </div>
@@ -301,7 +305,7 @@
                   <span class="ico-circle"><i class="fa fa-rocket" aria-hidden="true"></i></span>
                 </div>
                 <div class="counter-num">
-                  <p data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="counter purecounter"></p>
+                  <p data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="counter purecounter"></p>
                   <span class="counter-text">YEARS OF EXPERIENCE</span>
                 </div>
               </div>
@@ -312,7 +316,7 @@
                   <span class="ico-circle"><i class="fa fa-users" aria-hidden="true"></i></span>
                 </div>
                 <div class="counter-num">
-                  <p data-purecounter-start="0" data-purecounter-end="550" data-purecounter-duration="1" class="counter purecounter"></p>
+                  <p data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="counter purecounter"></p>
                   <span class="counter-text">TOTAL CLIENTS</span>
                 </div>
               </div>
@@ -323,8 +327,8 @@
                   <span class="ico-circle"><i class="fas fa-award"></i></span>
                 </div>
                 <div class="counter-num">
-                  <p data-purecounter-start="0" data-purecounter-end="48" data-purecounter-duration="1" class="counter purecounter"></p>
-                  <span class="counter-text">AWARD WON</span>
+                  <p data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="counter purecounter"></p>
+                  <span class="counter-text">CERTIFICATE</span>
                 </div>
               </div>
             </div>
@@ -442,9 +446,9 @@
                 <div class="swiper-pagination"></div>
               </div>
 
-              <!-- <div id="testimonial-mf" class="owl-carousel owl-theme">
+              <div id="testimonial-mf" class="owl-carousel owl-theme">
             
-          </div> -->
+          </div>
             </div>
           </div>
         </div>
@@ -468,7 +472,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4 m-card-blog">
             <div class="card card-blog">
               <div class="card-img">
                 <a href="blog-single.html"><img src="img/post-1.jpg" alt="" class="img-fluid"></a>
@@ -499,7 +503,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 m-card-blog">
             <div class="card card-blog">
               <div class="card-img">
                 <a href="blog-single.html"><img src="img/post-2.jpg" alt="" class="img-fluid"></a>
@@ -530,7 +534,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 m-card-blog">
             <div class="card card-blog">
               <div class="card-img">
                 <a href="blog-single.html"><img src="img/post-3.jpg" alt="" class="img-fluid"></a>
@@ -581,7 +585,7 @@
                       </h5>
                     </div>
                     <div>
-                      <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                      <form action="forms/contact.php" method="post" role="form" class="js-email-form">
                         <div class="row">
                           <div class="col-md-12 mb-3">
                             <div class="form-group">
@@ -674,10 +678,12 @@
 
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
-    <script src="Js/owl.carousel.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="swiper/swiper-bundle.min.js"></script>
+    <script src="typed.js/typed.min.js"></script>
+    <script src="purecounter/purecounter.js"></script>
+    <script src="glightbox/js/glightbox.min.js"></script>
     <script src="main.js"></script>
   </body>
 
