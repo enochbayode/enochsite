@@ -1,7 +1,8 @@
 .env
 # Node.js
-node_modules/
-npm-debug.log*
+.env
+node_modules
+package-lock.json
 
 # Mac OS X
 # .DS_Store
