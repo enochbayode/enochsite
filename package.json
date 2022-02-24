@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Code-Intelligent/MyPortfolio.git"
+    "url": "git+https://github.com/Code-Intelligent/enochsite.git"
   },
   "keywords": [
     "enochsite"
@@ -16,12 +16,14 @@
   "author": "enochbayode",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Code-Intelligent/MyPortfolio/issues"
+    "url": "https://github.com/Code-Intelligent/enochsite/issues"
   },
-  "homepage": "https://github.com/Code-Intelligent/MyPortfolio#readme",
+  "homepage": "https://github.com/Code-Intelligent/enochsite#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "express": "^4.17.3",
     "nodemon": "^2.0.15",
-    "passport": "^0.5.2"
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
   }
 }
