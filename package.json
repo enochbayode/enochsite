@@ -1,0 +1,27 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "my portfolio website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Code-Intelligent/MyPortfolio.git"
+  },
+  "keywords": [
+    "enochsite"
+  ],
+  "author": "enochbayode",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Code-Intelligent/MyPortfolio/issues"
+  },
+  "homepage": "https://github.com/Code-Intelligent/MyPortfolio#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2"
+  }
+}
