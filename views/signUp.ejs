@@ -6,7 +6,7 @@
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<!-- Font-->
-	<link rel="stylesheet" type="text/css" href="/css/nunito-font.css">
+	<!-- <link rel="stylesheet" type="text/css" href="/css/nunito-font.css"> -->
 	<!-- Main Style Css -->
     <link rel="stylesheet" href="/css/admin_design.css"/>
 </head>
@@ -16,14 +16,16 @@
 			<div class="form-left">
 				<img src="/img/enoch.JPG" width="500" alt="form">
 			</div>
-			<form class="form-detail" action="#" method="post">
+			<form class="form-detail" action="/auth/signup" method="post">
 				<h2>Sign Up Form</h2>
 				<div class="form-row">
-					<input type="text" name="fullname" id="full-name" class="input-text" placeholder="Your Name" required>
+					<input type="text" name="email" id="email" class="input-text" placeholder="Email Address" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
 				</div>
-				<!-- <div class="form-row">
-					<input type="text" name="your-email" id="your-email" class="input-text" placeholder="Email Address" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
-				</div> -->
+
+				<div class="form-row">
+					<input type="text" name="username" id="username" class="input-text" placeholder="Your Username" required>
+				</div>
+				
 				<div class="form-row">
 					<input type="password" name="password" id="password" class="input-text" placeholder="Password" required>
 				</div>
@@ -36,5 +38,5 @@
 			</form>
 		</div>
 	</div>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 </html>

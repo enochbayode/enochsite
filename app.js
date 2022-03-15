@@ -2,21 +2,27 @@ const express = require('express');
 const path = require('path');
 // const favicon = require('serve-favicon');
 const logger = require('morgan');
+dotenv = require("dotenv").config();
 const cookieParser = require('cookie-parser');
-const PORT = process.env.port;
-const Database_url = process.env.Database_url;
+const PORT = process.env.PORT;
+const Database_url = process.env.DATABASE_URL;
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const User = require('./models/user');
 
-// importing routes
-const index 	= require('./routes/index');
-const auth 	= require('./controller/auth');
-// const reviews = require('./routes/reviews');
-
 // instantiating express class
 const app = express();
+
+// importing routes
+const { mainrouter } 	= require('./routes/index');
+const { authrouter } = require('./routes/auth');
+// const reviews = require('./routes/reviews');
+
+// routes congfiguration
+app.use('/', mainrouter);
+
+app.use('/auth', authrouter);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,9 +43,12 @@ app.use(session({
 }));
 app.use(passport.authenticate('session'));
 
-// routes congfiguration
-app.use('/', index);
-app.use('/auth', auth);
+app.use(passport.initialize());
+app.use(passport.session());
+
+// passport.use(User.createStrategy());
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -61,22 +70,20 @@ res.render('error');
 
 // connecting to mongodb
 const mongoose = require('mongoose');
-// useFindAndModify set to false
-// mongoose.set('useFindAndModify', false);
-// use create index set to true
-// mongoose.set('useCreateIndex', true);
-
-mongoose.connect("mongodb+srv://Enoch:12345@data-set.mg3im.mongodb.net/Database?retryWrites=true&w=majority", {
+mongoose.connect(Database_url, {
     useNewUrlParser:true,
     useUnifiedTopology:true
 }).then(()=>{
   console.log('we are already connected to the server database');
-  app.listen(5500, () => {
-    console.log("This application is already running on port " , PORT);
+  app.listen(parseInt(PORT), () => {
+    console.log(`This application is already running on port ${PORT}`);
   });
 }).catch(err => {
   console.log('could not connect to mongoDB', err)
-})
+});
+
+
+
 
 
 

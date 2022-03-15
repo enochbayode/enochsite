@@ -1,11 +1,16 @@
 const express = require('express');
-const router = express.Router();
+const mainrouter = express.Router();
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
+mainrouter.get('/', (req, res, next) => {
   res.render('index', { title: "Enoch's Portfolio - Home" });
+});
+
+mainrouter.get('/blog', (req, res, next) => {
+  res.render('blog-single', { title: "Enoch's Portfolio - Home" });
 });
 
 
 
-module.exports = router
+
+module.exports = { mainrouter }
