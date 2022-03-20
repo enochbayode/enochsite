@@ -3,6 +3,7 @@ const { User } = require('../models/user');
 const jwt = require('jsonwebtoken');
 const { Mail } = require('../middlewares/mail');
 const { Utils } = require('../middlewares/utils');
+const flash = require('flash');
 const mail = new Mail();
 const utils = new Utils();
 
@@ -79,7 +80,7 @@ class Auth {
       res.status(401).json({
         status: false,
         message: "You've got some errors.",
-        errors: utils.getErrorMessage(error),
+        errors: utils.getErrorMessage(error)
       });
       return;
     }

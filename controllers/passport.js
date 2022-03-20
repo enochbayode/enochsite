@@ -3,7 +3,7 @@
 // const router = express.Router();
 // const passport = require ('passport');
 // var LocalStrategy = require ('passport-local').Strategy;
-// const User = require('../model/users');
+// const User = require('../models/user');
 
 // //serialize and desirialize
 
@@ -22,12 +22,12 @@
 
 
 // passport.use('local-login', new LocalStrategy({
-//     usernameField: 'email',
+//     usernameField: 'username',
 //     passwordField: 'password',
 //     passReqToCallback:true
 
-// }, function(req, email, password, done){
-//     User.findOne({email:req.body.email}, function(err,user){
+// }, function(req, username, password, done){
+//     User.findOne({username:req.body.username}, function(err,user){
 
 //         if(err) return done(err);
 
@@ -45,6 +45,5 @@
 
 
 
-
-//   module.exports = router;
+// module.exports = router;
 

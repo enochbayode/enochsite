@@ -4,19 +4,19 @@ const Schema =  mongoose.Schema;
 
 const UserSchema = new Schema({
     email:{
-        type:String,
+        type: String,
         unique:true,
         lowercase:true,
         required: true
     },
 
     username:{
-        type:String,
+        type: String,
         required: true
     },
 
     password:{
-        type:String,
+        type: String,
         required: true
     },
 
@@ -31,8 +31,6 @@ const UserSchema = new Schema({
 
 
 
-// UserSchema.plugin(passportLocalMongoose);
+UserSchema.plugin(passportLocalMongoose);
 
-const User = mongoose.model("user", UserSchema);
-
-module.exports = { User };
+module.exports = mongoose.model('User', UserSchema);
