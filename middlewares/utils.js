@@ -29,7 +29,7 @@ class Utils {
       ACCOUNT_UPDATE_SUCCESS: 'Account has been successfully updated',
       LOGOUT_SUCCESS: 'Sign Out successful',
       REGISTER_SUCCESS: 'Your account has been successfully created',
-      REGISTER_FAILURE: 'unable to register user',
+      REGISTER_FAILURE: 'Unable to register user',
       INVALID_TOKEN_ERROR: 'Invalid authentication token provided',
       TOKEN_ERROR: 'Authentication token required',
       UPDATE_ERROR: 'You are not allowed to make that update',

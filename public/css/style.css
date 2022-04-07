@@ -9,7 +9,6 @@ body {min-height:200vh;
 .navbar-cust.scrolled{
   background:#000;
 }
-
 .nav-content{
   /* justify-content: right !important; */
   float: right !important;

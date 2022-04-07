@@ -1,8 +1,8 @@
 // importing the required modules
 const { User } = require('../models/user');
 const jwt = require('jsonwebtoken');
-const { Mail } = require('../middlewares/mail');
-const { Utils } = require('../middlewares/utils');
+const { Mail } = require('./mail');
+const { Utils } = require('./utils');
 const flash = require('flash');
 const mail = new Mail();
 const utils = new Utils();
@@ -71,7 +71,7 @@ class Auth {
       req.user = {
         _id: user._id,
         email: user.email,
-        username: user.username,
+        name: user.name,
         password: user.password,
       };
       next();
