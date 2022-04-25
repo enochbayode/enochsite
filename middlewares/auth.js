@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const { Mail } = require('./mail');
 const { Utils } = require('./utils');
 const flash = require('flash');
+
 const mail = new Mail();
 const utils = new Utils();
 
@@ -25,7 +26,7 @@ class Auth {
       res.status(401).json({
         status: false,
         message: "You've got some errors.",
-        error: utils.getErrorMessage(error),
+        error: utils.getMessage("UNKNOWN_ERROR"),
       });
       return;
     }
