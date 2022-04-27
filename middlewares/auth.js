@@ -3,7 +3,6 @@ const { User } = require('../models/user');
 const jwt = require('jsonwebtoken');
 const { Mail } = require('./mail');
 const { Utils } = require('./utils');
-const flash = require('flash');
 
 const mail = new Mail();
 const utils = new Utils();
@@ -23,6 +22,7 @@ class Auth {
   async tokenRequired(req, res, next) {
     if (!req.headers.ayanke_access_token) {
       const error = 'TOKEN_ERROR';
+      // console.log(error)
       res.status(401).json({
         status: false,
         message: "You've got some errors.",

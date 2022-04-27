@@ -1,5 +1,5 @@
 // importing the required modules
-const User = require("../models/user");
+const { User } = require("../models/user");
 const bcrypt = require("bcrypt");
 const { Auth } = require("../middlewares/auth");
 const { Utils } = require("../middlewares/utils");
@@ -10,7 +10,6 @@ const securePassword = require("../middlewares/securePassword");
 // instantiating the middlewares
 const utils = new Utils();
 const auth = new Auth(); 
-const user =  User();
 const storage = new Storage();
 
 // instatiating image upload handler
@@ -101,14 +100,17 @@ const updateUserProfile = async (req, res) => {
 const signup = async (req, res) => {
   try {
     const existingUser = await User.findOne({
-      email: req.body.email,
+      email: req.body.email.toLowerCase(),
     });
     if (existingUser) {
       res.status(403);
-      return res.json({
+      return res
+      // .redirect('/auth/register')
+      .json({
         status:false,
         error: utils.getMessage("ACCOUNT_EXISTS_ERROR"),
       });
+      
     }
     const hashedPassword = await securePassword(req.body.password);
 
@@ -119,22 +121,32 @@ const signup = async (req, res) => {
     }).save();
     newUser.set("password", undefined);
     if (newUser) {
-      return res.status(201).json({
-        status: true,
-        message: utils.getMessage("REGISTER_SUCCESS"),
-        data: newUser,
-      });
+      return res
+      .status(201)
+      .redirect('/auth/signin')
+      // .json({
+      //   status: true,
+      //   message: utils.getMessage("REGISTER_SUCCESS"),
+      //   data: newUser,
+      // });
     }
-    return res.json({
-      status: false,
-      message: utils.getMessage("REGISTER_FAILURE") 
-    });
+
+    console.log(error);
+    return res
+    .redirect('/auth/register')
+    // .json({
+    //   status: false,
+    //   message: utils.getMessage("REGISTER_FAILURE") 
+    // });
   } catch (error) {
     console.log(error)
-    // res.status(500).json({
+    res
+    .status(500)
+    .redirect('/auth/register')
+    // .json({
     //   status: false,
     //   message: utils.getMessage("UNKNOWN_ERROR"),
-      // error: utils.getMessage("UNKNOWN_ERROR"),
+    //   error: utils.getMessage("UNKNOWN_ERROR"),
     // });
   }
 
@@ -142,16 +154,17 @@ const signup = async (req, res) => {
 
 const signin = async (req, res) => {
   try {
-    const user = await User.findOne({ email: email.toLowerCase() });
+    const user = await User.findOne({ email: req.body.email.toLowerCase() });
     if (!user) {
-      return res.status(404).json({
+      return res.redirect('/auth/signin').status(404).json({
         status: false,
         message: "user does not exist",
         error: utils.getMessage("ACCOUNT_EXISTENCE_ERROR"),
       });
     }
-    const isMatchedPassword = await bcrypt.compare(password, user.password);
+    const isMatchedPassword = await bcrypt.compare(req.body.password, user.password);
     if (!isMatchedPassword) {
+      // console.log('error')
       return res.status(400).json({
         status: false,
         message: "invalid password",
@@ -159,21 +172,23 @@ const signin = async (req, res) => {
       });
     }
     const accessToken = auth.generateAuthToken(user._id);
-    res.json({
-      status: true,
-      message: utils.getMessage("LOGIN_SUCCESS"),
-      data: {
-        user: user,
-        token: accessToken,
-      },
-    });
-  } catch (error) {
-    console.log(error)
-    // return res.status(500).json({
-    //   status: false,
-    //   message: "unable to login user",
-    //   error: utils.getMessage("VALIDATION_ERROR"),
+    res
+    .redirect('/auth/profile')
+    // .json({
+    //   status: true,
+    //   message: utils.getMessage("LOGIN_SUCCESS"),
+    //   data: {
+    //     user: user,
+    //     token: accessToken,
+    //   },
     // });
+  } catch (error) {
+    // console.log(error)
+    return res.status(500).json({
+      status: false,
+      message: "unable to login user",
+      error: utils.getMessage("VALIDATION_ERROR"),
+    });
   }
 };
 
