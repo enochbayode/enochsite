@@ -9,7 +9,11 @@ mainrouter.get('/', (req, res, next) => {
 });
 
 mainrouter.get('/blog', (req, res, next) => {
-  res.render('blog-single', { title: "Enoch's Portfolio - Home" });
+  res.render('blog-single', { title: "Enoch's Portfolio - Blog single" });
+});
+
+mainrouter.get('/portfolio-details', (req, res, next) => {
+  res.render('portfolio-details', {title: "Enoch's Portfolio - Portfolio details" })
 });
 
 // const transporter = nodemailer.createTransport({

@@ -1045,3 +1045,36 @@ footer .credits a {
 .portfolio-details {
   padding-top: 40px;
 }
+
+.arrow-dsg{
+  padding: 7px;
+  border-width: 10px;
+  border-radius: 30px;
+  border-color: #0078ff;
+  background-color: #ffff;
+  color: #000;
+}
+
+/*------/ portfolio /------*/
+.porfolio {
+  padding: 1.5rem 0;
+}
+.portfolio ul li {
+  display: inline-block;
+}
+.portfolio .ico-circle {
+  height: 40px;
+  width: 40px;
+  font-size: 1.7rem;
+  border-radius: 30%;
+  line-height: 1.6;
+  /* margin: 0 15px 10px 0; */
+  box-shadow: 0 0 0 3px #0078ff;
+  transition: all 500ms ease;
+}
+.portfolio .ico-circle:hover {
+  background-color: #0078ff;
+  color: #fff;
+  box-shadow: 0 0 0 3px #cde1f8;
+  transition: all 500ms ease;
+}
