@@ -40,14 +40,14 @@ document.addEventListener("DOMContentLoaded", function() { // On DOM Load initia
   if(textArray.length) setTimeout(type, newTextDelay + 250);
 });
 
-$(window).scroll(function(){
+(window).scroll(function(){
 	$('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
-});
+})
 
 /**
    * Back to top button
    */
- let backtotop = select('.back-to-top')
+let backtotop = select('.back-to-top');
  if (backtotop) {
    const toggleBacktotop = () => {
      if (window.scrollY > 100) {
