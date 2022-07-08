@@ -5,9 +5,6 @@ const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT;
 const Database_url = process.env.DATABASE_URL;
 const bodyParser = require('body-parser');
-// const session = require('express-session');
-// const passport = require('passport');
-// const flash = require('flash');
 
 
 // instantiating express class
