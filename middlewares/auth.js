@@ -1,10 +1,10 @@
 // importing the required modules
 const { User } = require('../models/user');
 const jwt = require('jsonwebtoken');
-const { Mail } = require('./mail');
+// const { Mail } = require('./mail');
 const { Utils } = require('./utils');
 
-const mail = new Mail();
+// const mail = new Mail();
 const utils = new Utils();
 
 class Auth {

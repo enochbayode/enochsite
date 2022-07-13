@@ -1,5 +1,6 @@
 const { mainrouter } 	= require('./routes/main');
 const { authrouter } = require('./routes/auth');
+// const { mailrouter } = require('./routes/mail');
 
 module.exports = (app) => {
   app.use('/', mainrouter);

@@ -23,3 +23,40 @@
       </div>
     </div>
   </div>
+
+  async function mainMail(name, email, subject, message) {
+    const transporter = await nodeMail.createTransport({
+      service: "gmail",
+      host: process.env.EMAIL_HOST,
+      auth: {
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    });
+    const mailOption = {
+      from: process.env.EMAIL_USERNAME,
+      to: process.env.EMAIL_PASSWORD,
+      html: `You got a message from 
+      Subject: ${subject}
+      Email : ${email}
+      Name: ${name}
+      Message: ${message}`,
+    };
+    try {
+      await transporter.sendMail(mailOption);
+      return Promise.resolve("Message Sent Successfully!");
+    } catch (error) {
+      console.log(error)
+      return Promise.reject(error);
+    }
+  }
+  
+  app.post('/send', async (req, res, next) => {
+    const { name, email, subject, message } = req.body;
+    try {
+      await sendMail(email, subject, message);
+    } catch (error) {
+      res.send("Message Could not be Sent");
+    }
+    res.send("Message Succssfully Sent!");
+  });

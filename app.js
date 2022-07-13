@@ -4,6 +4,7 @@ dotenv = require("dotenv").config();
 const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT;
 const Database_url = process.env.DATABASE_URL;
+const nodeMail = require("nodemailer");
 const bodyParser = require('body-parser');
 
 
@@ -25,26 +26,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// configure express session & passport
-// app.use(session({
-//   secret: 'hang ten dude!',
-//   resave: true,
-//   saveUninitialized: true
-// }));
-// configuring session ends 
-
-// setup flash
-// app.use(passport.initialize());
-// app.use(passport.session());
-// app.use(flash());
-  
-// error handler
 // app.use(function(err, req, res, next) {
 // // set locals, only providing error in development
 // res.locals.message = err.message;
 // res.locals.error = req.app.get('env') === 'development' ? err : {}
 // });
 
+app.post('/send', (res,req) => {
+  console.log(req.body)
+})
 
 // connecting to mongodb database
 const mongoose = require('mongoose');
