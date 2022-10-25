@@ -13,12 +13,16 @@ const validation = joi.object({
 const userValidation = async (req, res, next) => {
   try {
     const validated = validation.validate(req.body);
-    if (!validated) {
+    console.log(req.body)
+    if (validated.error) {
       res.status(400);
       return res.json({
         error: utils.getMessage("DATA_VALIDATION_ERROR"),
       });
     }
+
+    res.status(200, 'successfully validated');
+    
     next();
   } catch (error) {
     console.log(error);

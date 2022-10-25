@@ -9,30 +9,32 @@ let message = document.getElementById('message');
 //     contactForm.addEventListener('submit', swapper, false);
 // }
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    let formData = {
-        name: name.value,
-        email: email.value,
-        subject: subject.value,
-        message: message.value,
-    }
-    console.log(formData)
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', '/send')
-    xhr.setRequestHeader('content-type', 'application/json');
-    xhr.onload = function(){
-        console.log(xhr.responseText);
-        if (xhr.responseText == 'success'){
-            alert('Email sent');
-            name.value = '';
-            email.value = '';
-            subject.value = '';
-            message.value = '';
-        }else{
-            alert('Email not sent')
+if (contactForm){
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+    
+        let formData = {
+            name: name.value,
+            email: email.value,
+            subject: subject.value,
+            message: message.value,
         }
-    }
-    xhr.send(JSON.stringify(formData))
-})
+        console.log(formData)
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/send')
+        xhr.setRequestHeader('content-type', 'application/json');
+        xhr.onload = function(){
+            console.log(xhr.responseText);
+            if (xhr.responseText == 'success'){
+                alert('Email sent');
+                name.value = '';
+                email.value = '';
+                subject.value = '';
+                message.value = '';
+            }else{
+                alert('Email not sent')
+            }
+        }
+        xhr.send(JSON.stringify(formData))
+    })
+}
